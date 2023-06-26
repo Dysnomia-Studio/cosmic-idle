@@ -6,14 +6,15 @@ import { PRODUCTION_INTERVAL } from './constants.js';
 import getParticlesProd from './getParticlesProd.js';
 
 export default function useResourceProduction() {
-	const resources = useResources();
 	const setResources = useResourcesSetter();
 
 	useEffect(() => {
 		const id = setInterval(() => {
-			resources.particles += getParticlesProd();
+			setResources(resources => {
+				resources.particles += getParticlesProd();
 
-			setResources({ ...resources });
+				return { ...resources };
+			});
 		}, PRODUCTION_INTERVAL);
 
 		return () => clearInterval(id);

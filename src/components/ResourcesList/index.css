@@ -1,0 +1,25 @@
+.resources-list {
+	list-style: none;
+	margin: 0;
+	padding: 0rem;
+	width: 450px;
+	height: 100vh;
+	border: 1px solid black;
+}
+
+.resources-list li {
+	border-bottom: 1px solid black;
+	padding: 0.75rem;
+}
+
+.resources-list .resource-name, .resources-list .resource-value, .resources-list .resource-manual-btn {
+	display: inline-block;
+	width: 33.3%;
+}
+
+.resources-list .resource-name {
+	text-align: left;
+}
+.resources-list .resource-value {
+	text-align: center;
+}
