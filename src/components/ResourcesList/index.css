@@ -2,7 +2,7 @@
 	list-style: none;
 	margin: 0;
 	padding: 0rem;
-	width: 450px;
+	width: 600px;
 	height: 100vh;
 	border: 1px solid black;
 }
@@ -14,7 +14,7 @@
 
 .resources-list .resource-name, .resources-list .resource-value, .resources-list .resource-manual-btn {
 	display: inline-block;
-	width: 33.3%;
+	width: 25%;
 }
 
 .resources-list .resource-name {

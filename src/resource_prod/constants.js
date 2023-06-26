@@ -2,4 +2,4 @@ export const SECOND_TO_MS = 1000;
 export const CALC_PER_SECOND = 10;
 export const PRODUCTION_INTERVAL = SECOND_TO_MS / CALC_PER_SECOND;
 
-export const PARTICLES_PROD = 1 / CALC_PER_SECOND; 
+export const PARTICLES_PROD = 0.001 / CALC_PER_SECOND; 

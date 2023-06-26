@@ -3,6 +3,7 @@ const resourcesList = [
 		showif: (resources) => true,
 		id: 'particles',
 		name: 'Particles',
+		mass: 0.5,
 		onClick: (setResources) => {
 			setResources(resources => ({ ...resources, particles: resources.particles + 1 }));
 		},
@@ -12,6 +13,7 @@ const resourcesList = [
 		showif: (resources) => typeof resources.particles === 'number',
 		id: 'hydrogen',
 		name: 'Hydrogen',
+		mass: 1,
 		onClick: (setResources) => {
 			setResources(resources => { 
 				const localResources = { ...resources };
@@ -29,6 +31,7 @@ const resourcesList = [
 		showif: (resources) => typeof resources.hydrogen === 'number',
 		id: 'helium',
 		name: 'Helium',
+		mass: 2,
 		onClick: (setResources) => {
 			setResources(resources => { 
 				const localResources = { ...resources };

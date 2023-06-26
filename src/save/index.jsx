@@ -22,8 +22,6 @@ export default function SaveContextProvider({ children }) {
 			return;
 		}
 
-		console.log(resources);
-
 		const stringifiedResources = JSON.stringify(resources);
 		if(stringifiedResources !== localStorage.getItem(LOCALSTORAGE_RESOURCES_KEY)) {
 			localStorage.setItem(LOCALSTORAGE_RESOURCES_KEY, stringifiedResources);
