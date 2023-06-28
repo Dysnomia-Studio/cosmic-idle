@@ -6,7 +6,10 @@ import { PRODUCTION_INTERVAL } from './constants.js';
 import getParticlesProd from './getParticlesProd.js';
 
 export const prodCalculation = {
-	particles: getParticlesProd,
+	quark: getParticlesProd,
+	electron: () => 0,
+	proton: () => 0,
+	neutron: () => 0,
 	hydrogen: () => 0,
 	helium: () => 0,
 };

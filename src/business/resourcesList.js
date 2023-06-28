@@ -1,50 +1,82 @@
-const resourcesList = [
+let resourcesList = [
 	{
 		showif: (resources) => true,
-		id: 'particles',
-		name: 'Particles',
-		mass: 0.5,
-		onClick: (setResources) => {
-			setResources(resources => ({ ...resources, particles: resources.particles + 1 }));
-		},
+		id: 'quark',
+		name: 'Quark',
+		mass: 0.1,
+		ingredients: {},
 		button: 'Gather'
 	},
 	{
-		showif: (resources) => typeof resources.particles === 'number',
+		showif: (resources) => true,
+		id: 'electron',
+		name: 'Electron',
+		mass: 0.01,
+		ingredients: {},
+		button: 'Gather'
+	},
+	{
+		showif: (resources) => typeof resources.quark === 'number',
+		id: 'proton',
+		name: 'Proton',
+		mass: 1,
+		ingredients: { quark: 3 },
+		button: 'Form'
+	},
+	{
+		showif: (resources) => typeof resources.quark === 'number',
+		id: 'neutron',
+		name: 'Neutron',
+		mass: 1,
+		ingredients: { quark: 3 },
+		button: 'Form'
+	},
+	{
+		showif: (resources) => typeof resources.proton === 'number' && typeof resources.hydrogen === 'number',
 		id: 'hydrogen',
 		name: 'Hydrogen',
 		mass: 1,
-		onClick: (setResources) => {
-			setResources(resources => { 
-				const localResources = { ...resources };
-				if(localResources.particles >= 2) {
-					localResources.particles -= 2;
-					localResources.hydrogen += 1;
-				}
-
-				return { ...localResources };
-			});
-		},
-		button: 'Merge 2 x Particles'
+		ingredients: { electron: 1, proton: 1 },
+		button: 'Form'
 	},
 	{
 		showif: (resources) => typeof resources.hydrogen === 'number',
 		id: 'helium',
 		name: 'Helium',
 		mass: 2,
-		onClick: (setResources) => {
-			setResources(resources => { 
-				const localResources = { ...resources };
-				if(localResources.hydrogen >= 2) {
-					localResources.hydrogen -= 2;
-					localResources.helium += 1;
-				}
-
-				return { ...localResources };
-			});
-		},
-		button: 'Merge 2 x Hydrogen'
+		ingredients: { hydrogen: 2 },
+		button: null
 	}
 ];
+
+resourcesList = resourcesList.map(x => {
+	x.produce = (amount, inputResources) => {
+		const resources = {...inputResources};
+
+		for(let ingredientName in x.ingredients) {
+			if(x.ingredients[ingredientName] > resources[ingredientName]) {
+				return resources;
+			}
+		}
+
+		// Here, we are okay with ingredients
+		for(let ingredientName in x.ingredients) {
+			resources[ingredientName] -= x.ingredients[ingredientName];
+		}
+		resources[x.id] += amount;
+
+		console.log(resources);
+
+		return resources;
+	};
+
+	x.onClick = (setResources) => {
+		setResources(resources => {
+			return x.produce(1, resources);
+		});
+	};
+
+	return x;
+})
 
 export default resourcesList;

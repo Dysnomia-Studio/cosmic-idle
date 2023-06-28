@@ -20,11 +20,23 @@ export default function ResourcesList() {
 				}
 
 				return (
-					<li key={resource.id}>
+					<li key={resource.id} className="resource-list-item">
 						<span className="resource-name">{resource.name}</span>
 						<span className="resource-value">{formatNumber(resources[resource.id] || 0)}</span>
-						<span className="resource-value">{formatNumber(prodCalculation[resource.id](resources) * CALC_PER_SECOND, 1)}/s</span>
-						<input className="resource-manual-btn" type="button" onClick={() => resource.onClick(setResources)} value={resource.button} />
+						<span className="resource-prod">{formatNumber(prodCalculation[resource.id](resources) * CALC_PER_SECOND, 1)}/s</span>
+						{resource.button && 
+							<input
+								className="resource-manual-btn"
+								type="button"
+								onClick={() => resource.onClick(setResources)}
+								value={resource.button}
+							/>
+						}
+						{!resource.button && <span className="resource-manual-btn"></span>}
+						<ul className="resources-ingredients">
+							{Object.keys(resource.ingredients).map(id => <li>-{resource.ingredients[id]} {resourcesList.find(x => x.id === id).name}</li>)}
+							<li>+1 {resource.name}</li>
+						</ul>
 					</li>
 				);
 			})}
