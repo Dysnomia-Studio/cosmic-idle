@@ -1,8 +1,20 @@
+@font-face {
+    font-family: Roboto;
+    src: url(/Roboto.ttf);
+}
+
 html, body {
 	margin: 0;
 	user-select: none;
+	font-family: 'Roboto', sans-serif;
 }
 
 * {
 	box-sizing: border-box;
+}
+
+body {
+	background: linear-gradient(45deg, #090717, #0a0303);
+	height: 100vh;
+	color: white;
 }

@@ -8,11 +8,11 @@
 	padding: 0rem;
 	width: 600px;
 	height: 100vh;
-	border: 1px solid black;
+	border-right: 1px solid #dddddd;
 }
 
 .resource-list-item {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #dddddd;
 	padding: 0.75rem;
 }
 
@@ -34,4 +34,15 @@
 }
 .resources-list .resource-value {
 	text-align: center;
+}
+
+.resources-list input[type=button] {
+	background: #00000000;
+	color: white;
+	border: 1px solid white;
+	padding: 0.5rem 0.25rem;
+	cursor: pointer;
+}
+.resources-list input[type=button]:hover {
+	background: #222222AA;
 }
