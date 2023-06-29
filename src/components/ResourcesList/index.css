@@ -1,4 +1,8 @@
 .resources-list {
+	position: fixed;
+	left: 0;
+	top: 0;
+
 	list-style: none;
 	margin: 0;
 	padding: 0rem;
