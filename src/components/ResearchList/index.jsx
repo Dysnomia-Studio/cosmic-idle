@@ -29,6 +29,7 @@ export default function ResearchList() {
 					<li key={research.id} className={className} onClick={() => unlockResearch(research.id)}>
 						<h3 className="research-name">{research.name}</h3>
 						{research.description}
+						<p>Cost: {Object.keys(research.cost).map(c => <span className="resource-cost-item">{research.cost[c]} {c}</span>)}</p>
 						<input type="button" value="✔" />
 					</li>
 				);

@@ -40,3 +40,6 @@
 .research-list-item-researched input[type=button] {
 	color: green;
 }
+.resource-cost-item {
+	margin: 0 0.5rem;
+}
