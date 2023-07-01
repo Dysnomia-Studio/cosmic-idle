@@ -2,7 +2,6 @@ let resourcesList = [
 	{
 		showif: (resources) => true,
 		id: 'quark',
-		name: 'Quark',
 		mass: 0.1,
 		ingredients: {},
 		button: 'Gather'
@@ -10,7 +9,6 @@ let resourcesList = [
 	{
 		showif: (resources) => true,
 		id: 'electron',
-		name: 'Electron',
 		mass: 0.01,
 		ingredients: {},
 		button: 'Gather'
@@ -18,7 +16,6 @@ let resourcesList = [
 	{
 		showif: (resources) => typeof resources.quark === 'number',
 		id: 'proton',
-		name: 'Proton',
 		mass: 1,
 		ingredients: { quark: 3 },
 		button: 'Form'
@@ -26,7 +23,6 @@ let resourcesList = [
 	{
 		showif: (resources) => typeof resources.quark === 'number',
 		id: 'neutron',
-		name: 'Neutron',
 		mass: 1,
 		ingredients: { quark: 3 },
 		button: 'Form'
@@ -34,7 +30,6 @@ let resourcesList = [
 	{
 		showif: (resources) => typeof resources.proton === 'number' && typeof resources.hydrogen === 'number',
 		id: 'hydrogen',
-		name: 'Hydrogen',
 		mass: 1,
 		ingredients: { electron: 1, proton: 1 },
 		button: 'Form'
@@ -42,7 +37,6 @@ let resourcesList = [
 	{
 		showif: (resources) => typeof resources.hydrogen === 'number',
 		id: 'helium',
-		name: 'Helium',
 		mass: 2,
 		ingredients: { hydrogen: 2 },
 		button: null

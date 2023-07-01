@@ -1,14 +1,9 @@
-import formatNumber from '../../business/formatNumber.js';
-import researchList from '../../business/researchList.jsx';
-
-import { prodCalculation } from '../../resource_prod/index.jsx';
-import { CALC_PER_SECOND } from '../../resource_prod/constants.js';
+import View from './view.jsx';
 
 import { useResearch, useResearchSetter } from '../../save';
+import { withTranslation } from 'react-i18next';
 
-import './index.css';
-
-export default function ResearchList() {
+function ResearchList({ t, i18n }) {
 	const unlockedResearch = useResearch();
 	const setUnlockedResearch = useResearchSetter();
 
@@ -18,22 +13,13 @@ export default function ResearchList() {
 	}
 
 	return (
-		<ul className="research-list">
-			{researchList.map((research) => {
-				let className = 'research-list-item';
-				if(unlockedResearch.includes(research.id)) {
-					className += ' research-list-item-researched';
-				}
-
-				return (
-					<li key={research.id} className={className} onClick={() => unlockResearch(research.id)}>
-						<h3 className="research-name">{research.name}</h3>
-						{research.description}
-						<p>Cost: {Object.keys(research.cost).map(c => <span className="resource-cost-item">{research.cost[c]} {c}</span>)}</p>
-						<input type="button" value="✔" />
-					</li>
-				);
-			})}
-		</ul>
+		<View
+			unlockResearch={unlockResearch}
+			unlockedResearch={unlockedResearch}
+			t={t}
+			i18n={i18n}
+		/>
 	);
 }
+
+export default withTranslation()(ResearchList);
