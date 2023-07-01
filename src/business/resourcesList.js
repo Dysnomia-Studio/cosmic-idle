@@ -1,13 +1,13 @@
 let resourcesList = [
 	{
-		showif: (resources) => true,
+		showif: (_resources) => true,
 		id: 'quark',
 		mass: 0.1,
 		ingredients: {},
 		button: 'Gather'
 	},
 	{
-		showif: (resources) => true,
+		showif: (_resources) => true,
 		id: 'electron',
 		mass: 0.01,
 		ingredients: {},

@@ -26,11 +26,21 @@ export default function useResourceProduction() {
 		const id = setInterval(() => {
 			setResources(resources => {
 				for(const name in prodCalculation) {
+					if (!prodCalculation.hasOwnProperty(name)) {
+						console.warn(name);
+						continue;
+					}
+
 					const deltas = prodCalculation[name](resources, unlockedResearch);
 
 					// TODO: do not go negative
 
 					for(const resourceName in deltas) {
+						if (!deltas.hasOwnProperty(resourceName) || !resources.hasOwnProperty(resourceName)) {
+							console.warn(resourceName);
+							continue;
+						}
+
 						resources[resourceName] += deltas[resourceName];
 					}
 				}
