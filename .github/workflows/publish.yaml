@@ -77,7 +77,6 @@ jobs:
 
       - name: React build
         run: |
-          jq -c ".homepage = \"./\"" package.json > tmp.package.json && mv tmp.package.json package.json
           CI=false npm run build
 
       - uses: actions/upload-artifact@v3
