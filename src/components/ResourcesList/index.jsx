@@ -1,7 +1,8 @@
-import View from './view.jsx';
+import { withTranslation } from 'react-i18next';
 
 import { useResources, useResourcesSetter } from '../../save';
-import { withTranslation } from 'react-i18next';
+
+import View from './view.jsx';
 
 function ResourcesList({ t, i18n }) {
 	const resources = useResources();
@@ -10,7 +11,7 @@ function ResourcesList({ t, i18n }) {
 	return (
 		<View
 			resources={resources}
-			useResources={useResources}
+			setResources={setResources}
 			t={t}
 			i18n={i18n}
 		/>

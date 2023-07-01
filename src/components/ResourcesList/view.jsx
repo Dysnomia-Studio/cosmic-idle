@@ -29,8 +29,8 @@ export default function ResourcesList({ i18n, resources, setResources, t }) {
 						}
 						{!resource.button && <span className="resource-manual-btn"></span>}
 						<ul className="resources-ingredients">
-							{Object.keys(resource.ingredients).map(id => <li key={id}>-{resource.ingredients[id]} {resourcesList.find(x => x.id === id).name}</li>)}
-							<li>+1 {resource.name}</li>
+							{Object.keys(resource.ingredients).map(id => <li key={id}>-{resource.ingredients[id]} {t(`resources:${id}`)}</li>)}
+							<li>+1 {t(`resources:${resource.id}`)}</li>
 						</ul>
 					</li>
 				);
