@@ -81,7 +81,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: react
-          path: build 
+          path: dist 
 
   itch_publish_job:
     needs: build_job
@@ -98,7 +98,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: react
-          path: build/
+          path: dist/
 
       - name: Install butler
         run: |
@@ -111,4 +111,4 @@ jobs:
 
       - name: Upload build
         run: |
-          ./butler push build/ elanis/cosmic-idle:web
+          ./butler push dist/ elanis/cosmic-idle:web
