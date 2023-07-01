@@ -12,7 +12,7 @@ let lastSave = Date.now();
 const minSaveInterval = 5_000; // 5 seconds
 export default function SaveContextProvider({ children }) {
 	const [resources, setResources] = useState(JSON.parse(localStorage.getItem(LOCALSTORAGE_RESOURCES_KEY) || '{}'));
-	const [research, setResearch] = useState(JSON.parse(localStorage.getItem(LOCALSTORAGE_RESEARCH_KEY) || '["protostars"]'));
+	const [research, setResearch] = useState(JSON.parse(localStorage.getItem(LOCALSTORAGE_RESEARCH_KEY) || '[]'));
 
 	useEffect(() => {
 		for(const resource of resourcesList) {
