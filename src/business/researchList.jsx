@@ -15,7 +15,7 @@ const researchList = [
 	}, {
 		id: 'protostars',
 		description: <p>Grant the ability to form protostars</p>,
-		cost: { proton: 50 }
+		cost: { proton: 25 }
 	}, {
 		id: 'nuclear_fusion',
 		description: <p>Grant the ability to evolve protostars into stars. Stars will automaticaly create light elements from hydrogen.</p>,

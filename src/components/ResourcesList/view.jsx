@@ -6,7 +6,7 @@ import { CALC_PER_SECOND } from '../../resource_prod/constants.js';
 
 import './index.css';
 
-export default function ResourcesList({ i18n, resources, setResources, t }) {
+export default function ResourcesList({ i18n, resources, setResources, t, unlockedResearch }) {
 	return (
 		<ul className="resources-list">
 			{resourcesList.map((resource) => {
@@ -18,7 +18,7 @@ export default function ResourcesList({ i18n, resources, setResources, t }) {
 					<li key={resource.id} className="resource-list-item">
 						<span className="resource-name">{t(`resources:${resource.id}`)}</span>
 						<span className="resource-value">{formatNumber(resources[resource.id] || 0)}</span>
-						<span className="resource-prod">{formatNumber(prodCalculation[resource.id](resources) * CALC_PER_SECOND, 1)}/s</span>
+						<span className="resource-prod">{formatNumber(prodCalculation[resource.id](resources, unlockedResearch)[resource.id] * CALC_PER_SECOND, 1)}/s</span>
 						{resource.button && 
 							<input
 								className="resource-manual-btn"

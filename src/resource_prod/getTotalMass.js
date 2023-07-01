@@ -1,13 +1,10 @@
-import { PARTICLES_PROD } from './constants.js';
-
 import resourcesList from '../business/resourcesList.js';
 
-export default function getParticlesProd(resources) {
+export default function getTotalMass(resources) {
 	let mass = 0;
 	for(const elementName in resources) {
 		mass += resources[elementName] * resourcesList.find(x => x.id === elementName).mass;
 	}
-	const base = mass * PARTICLES_PROD;
 
-	return base;
+	return mass;
 }
