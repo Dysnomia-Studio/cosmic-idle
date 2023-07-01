@@ -76,7 +76,9 @@ jobs:
       - run: rm -rf public/img/_original
 
       - name: React build
-        run: CI=false npm run build
+        run: |
+          jq -c ".homepage = \"./\"" package.json > tmp.package.json && mv tmp.package.json package.json
+          CI=false npm run build
 
       - uses: actions/upload-artifact@v3
         with:
