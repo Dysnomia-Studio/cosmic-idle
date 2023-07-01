@@ -13,24 +13,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/demo'
 
       - name: Set Git Identity
-        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/demo'
         run: |
           git config --global user.email "112242530+DysnomiaBot@users.noreply.github.com"
           git config --global user.name "DysnomiaBot"
 
-      - if: github.ref == 'refs/heads/develop'
-        name: Tag (Develop)
-        run: npm version prepatch
-
-      - if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/demo'
-        name: Tag (Main)
+      - name: Tag (Main)
         run: npm version patch
 
       - name: Push
-        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/demo'
         run: |
           git push
           git push --tags
@@ -87,7 +79,6 @@ jobs:
         run: CI=false npm run build
 
       - uses: actions/upload-artifact@v3
-        if: github.ref == 'refs/heads/demo'
         with:
           name: react
           path: build 
