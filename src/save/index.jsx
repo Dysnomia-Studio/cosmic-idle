@@ -11,8 +11,22 @@ const LOCALSTORAGE_RESEARCH_KEY = 'research';
 let lastSave = Date.now();
 const minSaveInterval = 5_000; // 5 seconds
 export default function SaveContextProvider({ children }) {
-	const [resources, setResources] = useState(JSON.parse(localStorage.getItem(LOCALSTORAGE_RESOURCES_KEY) || '{}'));
-	const [research, setResearch] = useState(JSON.parse(localStorage.getItem(LOCALSTORAGE_RESEARCH_KEY) || '[]'));
+	let defaultResources = {};
+	try {
+		defaultResources = JSON.parse(localStorage.getItem(LOCALSTORAGE_RESOURCES_KEY) || '{}')
+	} catch(e) {
+		console.error(e);
+	}
+
+	let defaultResearch = [];
+	try {
+		defaultResearch = JSON.parse(localStorage.getItem(LOCALSTORAGE_RESEARCH_KEY) || '[]')
+	} catch(e) {
+		console.error(e);
+	}
+
+	const [resources, setResources] = useState(defaultResources);
+	const [research, setResearch] = useState(defaultResearch);
 
 	useEffect(() => {
 		for(const resource of resourcesList) {
@@ -26,8 +40,12 @@ export default function SaveContextProvider({ children }) {
 		}
 
 		const stringifiedResources = JSON.stringify(resources);
-		if(stringifiedResources !== localStorage.getItem(LOCALSTORAGE_RESOURCES_KEY)) {
-			localStorage.setItem(LOCALSTORAGE_RESOURCES_KEY, stringifiedResources);
+		try {
+			if(stringifiedResources !== localStorage.getItem(LOCALSTORAGE_RESOURCES_KEY)) {
+				localStorage.setItem(LOCALSTORAGE_RESOURCES_KEY, stringifiedResources);
+			}
+		} catch(e) {
+			console.error(e);
 		}
 
 		lastSave = Date.now();
@@ -35,8 +53,12 @@ export default function SaveContextProvider({ children }) {
 
 	useEffect(() => {
 		const stringifiedResearch = JSON.stringify(research);
-		if(stringifiedResearch !== localStorage.getItem(LOCALSTORAGE_RESEARCH_KEY)) {
-			localStorage.setItem(LOCALSTORAGE_RESEARCH_KEY, stringifiedResearch);
+		try {
+			if(stringifiedResearch !== localStorage.getItem(LOCALSTORAGE_RESEARCH_KEY)) {
+				localStorage.setItem(LOCALSTORAGE_RESEARCH_KEY, stringifiedResearch);
+			}
+		} catch(e) {
+			console.error(e);
 		}
 	}, [research]);
 
