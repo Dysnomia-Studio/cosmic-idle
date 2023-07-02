@@ -10,5 +10,7 @@ export default function getTotalMass(resources) {
 		mass += resources[elementName] * resourcesList.find(x => x.id === elementName).mass;
 	}
 
+	mass /= Math.log(Math.max(2, mass - 50));
+
 	return mass;
 }
