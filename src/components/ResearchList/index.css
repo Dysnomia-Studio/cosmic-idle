@@ -9,6 +9,8 @@
 	height: 100vh;
 	border-left: 1px solid #DDDDDD;
 	padding: 0.5rem;
+
+	overflow-x: auto;
 }
 
 .research-list-item {

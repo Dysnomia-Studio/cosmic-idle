@@ -10,6 +10,8 @@
 	height: 100vh;
 	border-right: 1px solid #dddddd;
 	font-size: 0.88rem;
+
+	overflow-x: auto;
 }
 
 .resource-list-item {
