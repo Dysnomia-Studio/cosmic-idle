@@ -19,7 +19,7 @@ const researchList = [
 	}, {
 		id: 'nuclear_fusion',
 		description: <p>Grant the ability to evolve protostars into stars. Stars will automaticaly create light elements from hydrogen.</p>,
-		cost: { hydrogen: 50 }
+		cost: { hydrogen: 25 }
 	}
 ];
 

@@ -50,6 +50,7 @@ function StarsList({ t, i18n }) {
 			formStar={formStar}
 			evolveStar={evolveStar}
 			disabled={!unlockedResearch.includes('protostars')}
+			unlockedResearch={unlockedResearch}
 			stars={stars}
 			t={t}
 			i18n={i18n}
