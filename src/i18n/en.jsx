@@ -19,7 +19,8 @@ const translations = {
 		nuclear_fusion: 'Nuclear Fusion',
 	},
 	stars: {
-		protostar: 'Protostar'
+		protostar: 'Protostar',
+		star: 'Star',
 	}
 };
 

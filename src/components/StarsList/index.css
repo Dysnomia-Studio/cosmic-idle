@@ -40,6 +40,8 @@
 	background: black;
 
 	display: inline-block;
+
+	vertical-align: top;
 }
 .star-list-item h2 {
 	margin-top: 0;

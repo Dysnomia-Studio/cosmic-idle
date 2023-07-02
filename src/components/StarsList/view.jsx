@@ -4,7 +4,7 @@ import formatNumber from '../../business/formatNumber.js';
 
 import './index.css';
 
-export default function StarsList({ disabled, formStar, i18n, resources, stars, t }) {
+export default function StarsList({ disabled, formStar, evolveStar, i18n, resources, stars, t }) {
 	const [percentage, setPercentage] = useState(50);
 	function onPercentageChange(e) {
 		setPercentage(e.target.value);
@@ -31,7 +31,8 @@ export default function StarsList({ disabled, formStar, i18n, resources, stars, 
 						)}
 					</ul>
 					<div className="star-list-item-buttons">
-						{star.stage === 'protostar' && <input type="button" value="Evolve to star" onClick={() => { /* TODO */ }} />}
+						{star.stage === 'protostar' && <input type="button" value="Evolve to star" onClick={() => evolveStar(i)} />}
+						{star.stage === 'star' && <input type="button" value="Star Death" onClick={() => evolveStar(i)} />}
 					</div>
 				</div>
 			)}

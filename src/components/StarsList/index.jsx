@@ -29,10 +29,26 @@ function StarsList({ t, i18n }) {
 		});
 	}
 
+	function evolveStar(i) {
+		setStars(localStars => {
+			if(localStars.length !== stars.length) {
+				return; // TODO: error because it changed
+			}
+
+			const outputStars = [...localStars];
+			if(outputStars[i].stage === 'protostar') {
+				outputStars[i].stage = 'star';
+			}
+
+			return outputStars;
+		});
+	}
+
 	return (
 		<View
 			resources={resources}
 			formStar={formStar}
+			evolveStar={evolveStar}
 			disabled={!unlockedResearch.includes('protostars')}
 			stars={stars}
 			t={t}
