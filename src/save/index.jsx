@@ -14,16 +14,12 @@ export default function SaveContextProvider({ children }) {
 	let defaultResources = {};
 	try {
 		defaultResources = JSON.parse(localStorage.getItem(LOCALSTORAGE_RESOURCES_KEY) || '{}')
-	} catch(e) {
-		console.error(e);
-	}
+	} catch { }
 
 	let defaultResearch = [];
 	try {
 		defaultResearch = JSON.parse(localStorage.getItem(LOCALSTORAGE_RESEARCH_KEY) || '[]')
-	} catch(e) {
-		console.error(e);
-	}
+	} catch { }
 
 	const [resources, setResources] = useState(defaultResources);
 	const [research, setResearch] = useState(defaultResearch);
