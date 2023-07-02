@@ -5,6 +5,7 @@ import { useResearch, useResources, useResourcesSetter } from '../save/index.jsx
 import { PRODUCTION_INTERVAL } from './constants.js';
 
 import getElectronProd from './getElectronProd.js';
+import getHydrogenProd from './getHydrogenProd.js';
 import getNeutronProd from './getNeutronProd.js';
 import getProtonProd from './getProtonProd.js';
 import getQuarkProd from './getQuarkProd.js';
@@ -14,7 +15,7 @@ export const prodCalculation = {
 	electron: getElectronProd,
 	proton: getProtonProd,
 	neutron: getNeutronProd,
-	hydrogen: () => ({ hydrogen: 0 }),
+	hydrogen: getHydrogenProd,
 	helium: () => ({ helium: 0 }),
 };
 
