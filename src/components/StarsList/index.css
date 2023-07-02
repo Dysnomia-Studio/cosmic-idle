@@ -30,3 +30,23 @@
 	margin-top: 0.5rem;
 	min-width: 150px;
 }
+
+.star-list-item {
+	width: calc(33.2% - 1rem);
+	margin: 0.5rem;
+	padding: 0.5rem;
+
+	border: 1px solid #FFFFFF55;
+	background: black;
+
+	display: inline-block;
+}
+.star-list-item ul {
+	padding-left: 1rem;
+}
+.star-list-item img {
+	max-width: 100%;
+}
+.star-list-item-buttons {
+	text-align: center;
+}

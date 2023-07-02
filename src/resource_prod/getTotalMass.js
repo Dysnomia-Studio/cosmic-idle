@@ -11,12 +11,12 @@ export default function getTotalMass(resources, stars) {
 	}
 
 	for(const star of stars) {
-		for(const elementName in star) {
-			if (!star.hasOwnProperty(elementName)) {
+		for(const elementName in star.content) {
+			if (!star.content.hasOwnProperty(elementName)) {
 				console.warn(elementName);
 				continue;
 			}
-			mass += star[elementName] * resourcesList.find(x => x.id === elementName).mass;
+			mass += star.content[elementName] * resourcesList.find(x => x.id === elementName).mass;
 		}
 	}
 

@@ -19,7 +19,7 @@ function StarsList({ t, i18n }) {
 
 			setStars(localStars => [
 				...localStars,
-				{ hydrogen: amount },
+				{ stage: 'protostar', content: { hydrogen: amount } },
 			]);
 
 			return {
@@ -34,6 +34,7 @@ function StarsList({ t, i18n }) {
 			resources={resources}
 			formStar={formStar}
 			disabled={!unlockedResearch.includes('protostars')}
+			stars={stars}
 			t={t}
 			i18n={i18n}
 		/>
