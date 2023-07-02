@@ -9,6 +9,7 @@
 	width: 600px;
 	height: 100vh;
 	border-right: 1px solid #dddddd;
+	font-size: 0.88rem;
 }
 
 .resource-list-item {
@@ -16,16 +17,21 @@
 	padding: 0.75rem;
 }
 
-.resources-list .resources-ingredients {
+.resources-list .resource-ingredients {
 	padding: 0;
 	margin: 0;
 	list-style: none;
 	padding-left: 1rem;
 }
 
-.resources-list .resource-name, .resources-list .resource-value, .resources-list .resource-prod, .resources-list .resources-ingredients, .resources-list .resource-manual-btn {
+.resources-list .resource-name,
+.resources-list .resource-value,
+.resources-list .resource-prod,
+.resources-list .resource-conso,
+.resources-list .resource-ingredients,
+.resources-list .resource-manual-btn {
 	display: inline-block;
-	width: 20%;
+	width: 16.5%;
 	vertical-align: middle;
 }
 
