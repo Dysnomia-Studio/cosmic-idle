@@ -7,6 +7,7 @@ export const SaveContext = createContext();
 
 const LOCALSTORAGE_RESOURCES_KEY = 'resources';
 const LOCALSTORAGE_RESEARCH_KEY = 'research';
+const LOCALSTORAGE_STAR_KEY = 'star';
 
 let lastSave = Date.now();
 const minSaveInterval = 5_000; // 5 seconds
@@ -20,9 +21,14 @@ export default function SaveContextProvider({ children }) {
 	try {
 		defaultResearch = JSON.parse(localStorage.getItem(LOCALSTORAGE_RESEARCH_KEY) || '[]')
 	} catch { }
+	let defaultStars = [];
+	try {
+		defaultStars = JSON.parse(localStorage.getItem(LOCALSTORAGE_STAR_KEY) || '[]')
+	} catch { }
 
 	const [resources, setResources] = useState(defaultResources);
 	const [research, setResearch] = useState(defaultResearch);
+	const [stars, setStars] = useState(defaultStars);
 
 	useEffect(() => {
 		for(const resource of resourcesList) {
@@ -58,8 +64,19 @@ export default function SaveContextProvider({ children }) {
 		}
 	}, [research]);
 
+	useEffect(() => {
+		const stringifiedStars = JSON.stringify(stars);
+		try {
+			if(stringifiedStars !== localStorage.getItem(LOCALSTORAGE_STAR_KEY)) {
+				localStorage.setItem(LOCALSTORAGE_STAR_KEY, stringifiedStars);
+			}
+		} catch(e) {
+			console.error(e);
+		}
+	}, [stars]);
+
 	return (
-		<SaveContext.Provider value={{ resources, setResources, research, setResearch }}>
+		<SaveContext.Provider value={{ resources, setResources, research, setResearch, stars, defaultStars }}>
 			{children}
 		</SaveContext.Provider>
 	);
