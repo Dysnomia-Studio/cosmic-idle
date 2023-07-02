@@ -76,7 +76,7 @@ export default function SaveContextProvider({ children }) {
 	}, [stars]);
 
 	return (
-		<SaveContext.Provider value={{ resources, setResources, research, setResearch, stars, defaultStars }}>
+		<SaveContext.Provider value={{ resources, setResources, research, setResearch, stars, setStars }}>
 			{children}
 		</SaveContext.Provider>
 	);
@@ -94,4 +94,11 @@ export function useResearch() {
 }
 export function useResearchSetter() {
 	return useContext(SaveContext).setResearch;
+}
+
+export function useStars() {
+	return useContext(SaveContext).stars;
+}
+export function useStarsSetter() {
+	return useContext(SaveContext).setStars;
 }
