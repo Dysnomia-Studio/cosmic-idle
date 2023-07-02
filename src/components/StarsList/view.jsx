@@ -31,7 +31,7 @@ export default function StarsList({ disabled, formStar, evolveStar, i18n, resour
 					<span>Content:</span>
 					<ul>
 						{Object.keys(star.content).map(name => 
-							<li>{star.content[name]} {t('resource:' + name)}</li>
+							<li>{formatNumber(star.content[name])} {t('resource:' + name)}</li>
 						)}
 					</ul>
 					<div className="star-list-item-buttons">

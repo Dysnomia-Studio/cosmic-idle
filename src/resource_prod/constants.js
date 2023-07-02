@@ -12,3 +12,12 @@ export const PROTON_BASE_PROD = 0.001 / CALC_PER_SECOND;
 export const NEUTRON_BASE_PROD = 0.001 / CALC_PER_SECOND;
 
 export const HYDROGEN_BASE_PROD = 0.0005 / CALC_PER_SECOND;
+
+export const STAR_CONVERSION_NB_SECONDS = 60;
+export const STAR_CONVERSION_PER_SECOND = 1 / STAR_CONVERSION_NB_SECONDS;
+export const STAR_CONVERSION_PRODUCED = {
+	helium: 0.95 / 2,
+	lithium: 0.025 / 3,
+	beryllium: 0.015 / 4,
+	bore: 0.01 / 5,
+};

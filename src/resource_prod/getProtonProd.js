@@ -5,11 +5,11 @@ import getTotalMass from './getTotalMass.js';
 
 export default function getProtonProd(resources, unlockedResearch, stars) {
 	if(!unlockedResearch.includes('fundamental_interactions')) {
-		return { proton: 0 };
+		return [{ proton: 0 }, stars];
 	}
 
 	let mass = getTotalMass(resources, stars);
 	let base = mass * PROTON_BASE_PROD;
 
-	return { proton: base, quark: -3 * base };
+	return [{ proton: base, quark: -3 * base }, stars];
 }

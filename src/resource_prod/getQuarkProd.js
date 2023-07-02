@@ -12,5 +12,5 @@ export default function getQuarkProd(resources, unlockedResearch, stars) {
 		base *= QUARK_FUNDAMENTAL_INTERACTIONS_MULTIPLIER;
 	}
 
-	return { quark: base };
+	return [{ quark: base }, stars];
 }

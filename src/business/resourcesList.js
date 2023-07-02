@@ -35,10 +35,31 @@ let resourcesList = [
 		button: 'Form'
 	},
 	{
-		showif: (resources) => typeof resources.hydrogen === 'number',
+		showif: (resources) => typeof resources.helium === 'number',
 		id: 'helium',
 		mass: 2,
-		ingredients: { hydrogen: 2 },
+		ingredients: { },
+		button: null
+	},
+	{
+		showif: (resources) => typeof resources.lithium === 'number',
+		id: 'lithium',
+		mass: 3,
+		ingredients: { },
+		button: null
+	},
+	{
+		showif: (resources) => typeof resources.lithium === 'number',
+		id: 'beryllium',
+		mass: 4,
+		ingredients: { },
+		button: null
+	},
+	{
+		showif: (resources) => typeof resources.lithium === 'number',
+		id: 'bore',
+		mass: 4,
+		ingredients: { },
 		button: null
 	}
 ];

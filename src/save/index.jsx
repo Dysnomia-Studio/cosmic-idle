@@ -41,6 +41,8 @@ export default function SaveContextProvider({ children }) {
 			return;
 		}
 
+		lastSave = Date.now();
+
 		const stringifiedResources = JSON.stringify(resources);
 		try {
 			if(stringifiedResources !== localStorage.getItem(LOCALSTORAGE_RESOURCES_KEY)) {
@@ -50,8 +52,17 @@ export default function SaveContextProvider({ children }) {
 			console.error(e);
 		}
 
-		lastSave = Date.now();
-	}, [resources]);
+		const stringifiedStars = JSON.stringify(stars);
+		try {
+			if(stringifiedStars !== localStorage.getItem(LOCALSTORAGE_STAR_KEY)) {
+				localStorage.setItem(LOCALSTORAGE_STAR_KEY, stringifiedStars);
+			}
+		} catch(e) {
+			console.error(e);
+		}
+
+		lastSave = Date.now();	
+	}, [resources, stars]);
 
 	useEffect(() => {
 		const stringifiedResearch = JSON.stringify(research);
@@ -63,17 +74,6 @@ export default function SaveContextProvider({ children }) {
 			console.error(e);
 		}
 	}, [research]);
-
-	useEffect(() => {
-		const stringifiedStars = JSON.stringify(stars);
-		try {
-			if(stringifiedStars !== localStorage.getItem(LOCALSTORAGE_STAR_KEY)) {
-				localStorage.setItem(LOCALSTORAGE_STAR_KEY, stringifiedStars);
-			}
-		} catch(e) {
-			console.error(e);
-		}
-	}, [stars]);
 
 	return (
 		<SaveContext.Provider value={{ resources, setResources, research, setResearch, stars, setStars }}>

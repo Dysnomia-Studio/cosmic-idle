@@ -10,7 +10,7 @@ export default function ResourcesList({ i18n, resources, setResources, stars, t,
 	const prods = {};
 	const consos = {};
 	for(const resource of resourcesList) {
-		const delta = prodCalculation[resource.id](resources, unlockedResearch, stars);
+		const delta = prodCalculation[resource.id](resources, unlockedResearch, stars)[0];
 
 		for(const resourceName in delta) {
 			if(resourceName === resource.id) {

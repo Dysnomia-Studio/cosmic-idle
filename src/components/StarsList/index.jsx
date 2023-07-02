@@ -14,7 +14,7 @@ function StarsList({ t, i18n }) {
 	function formStar(amount) {
 		setResources(inputResources => {
 			if(inputResources.hydrogen < amount) {
-				return; // TODO: error
+				return inputResources; // TODO: error
 			}
 
 			setStars(localStars => [
@@ -32,7 +32,7 @@ function StarsList({ t, i18n }) {
 	function evolveStar(i) {
 		setStars(localStars => {
 			if(localStars.length !== stars.length) {
-				return; // TODO: error because it changed
+				return localStars; // TODO: error because it changed
 			}
 
 			const outputStars = [...localStars];
