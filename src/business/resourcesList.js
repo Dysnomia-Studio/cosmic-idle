@@ -59,8 +59,6 @@ resourcesList = resourcesList.map(x => {
 		}
 		resources[x.id] += amount;
 
-		console.log(resources);
-
 		return resources;
 	};
 
