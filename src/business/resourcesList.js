@@ -38,28 +38,28 @@ let resourcesList = [
 		showif: (resources) => typeof resources.helium === 'number',
 		id: 'helium',
 		mass: 2,
-		ingredients: { },
+		ingredients: { hydrogen: 2 },
 		button: null
 	},
 	{
 		showif: (resources) => typeof resources.lithium === 'number',
 		id: 'lithium',
 		mass: 3,
-		ingredients: { },
+		ingredients: { hydrogen: 3 },
 		button: null
 	},
 	{
 		showif: (resources) => typeof resources.lithium === 'number',
 		id: 'beryllium',
 		mass: 4,
-		ingredients: { },
+		ingredients: { hydrogen: 4 },
 		button: null
 	},
 	{
 		showif: (resources) => typeof resources.lithium === 'number',
 		id: 'bore',
 		mass: 4,
-		ingredients: { },
+		ingredients: { hydrogen: 5 },
 		button: null
 	}
 ];

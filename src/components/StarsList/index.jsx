@@ -30,14 +30,33 @@ function StarsList({ t, i18n }) {
 	}
 
 	function evolveStar(i) {
+		if(i >= stars.length) {
+			return; // TODO: error
+		}
+
 		setStars(localStars => {
 			if(localStars.length !== stars.length) {
 				return localStars; // TODO: error because it changed
 			}
 
-			const outputStars = [...localStars];
+			let outputStars = [...localStars];
 			if(outputStars[i].stage === 'protostar') {
 				outputStars[i].stage = 'star';
+			} else if(outputStars[i].stage === 'star') {
+				const starCopy = outputStars.splice(i, 1)[0];
+				setResources(inputResources => {
+					const newResources = { ...inputResources };
+
+					for(const elementName in starCopy.content) {
+						if(typeof newResources[elementName] !== 'number') {
+							newResources[elementName] = 0;
+						}
+
+						newResources[elementName] += starCopy.content[elementName];
+					}
+
+					return newResources;
+				});
 			}
 
 			return outputStars;

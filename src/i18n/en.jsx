@@ -12,6 +12,9 @@ const translations = {
 		neutron: 'Neutron',
 		hydrogen: 'Hydrogen',
 		helium: 'Helium',
+		lithium: 'Lithium',
+		beryllium: 'Beryllium',
+		bore: 'Bore',
 	},
 	research: {
 		fundamental_interactions: 'Fundamental Interactions',
