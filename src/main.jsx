@@ -24,9 +24,7 @@ i18n.use(initReactI18next)
 	});
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<React.StrictMode>
-		<SaveContextProvider>
-			<App />
-		</SaveContextProvider>
-	</React.StrictMode>,
+	<SaveContextProvider>
+		<App />
+	</SaveContextProvider>
 );
