@@ -41,6 +41,10 @@
 
 	display: inline-block;
 }
+.star-list-item h2 {
+	margin-top: 0;
+	text-align: center;
+}
 .star-list-item ul {
 	padding-left: 1rem;
 }

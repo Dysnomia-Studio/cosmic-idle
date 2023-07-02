@@ -17,6 +17,9 @@ const translations = {
 		fundamental_interactions: 'Fundamental Interactions',
 		protostars: 'Protostars',
 		nuclear_fusion: 'Nuclear Fusion',
+	},
+	stars: {
+		protostar: 'Protostar'
 	}
 };
 

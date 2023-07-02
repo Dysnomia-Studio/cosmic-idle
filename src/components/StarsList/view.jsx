@@ -22,6 +22,7 @@ export default function StarsList({ disabled, formStar, i18n, resources, stars, 
 
 			{stars.map((star, i) =>
 				<div key={i} className="star-list-item">
+					<h2>{t('stars:' + star.stage)}</h2>
 					<img src={`img/${star.stage}.jpg`} alt={star.stage} />
 					<span>Content:</span>
 					<ul>
