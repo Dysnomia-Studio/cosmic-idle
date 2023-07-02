@@ -9,15 +9,20 @@
 	text-align: center;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid #DDDDDD55;
+	line-height: 2rem;
+}
+.stars-list-header * {
+	vertical-align: middle;
 }
 
 .stars-list-header-text {
 	display: inline-block;
-	min-width: 8rem;
+	min-width: 12rem;
+	padding-right: 2rem;
 }
 
 .stars-list input[type=range] {
-	width: calc(100% - 11rem);
+	width: calc(100% - 15rem);
 	min-width: 8rem;
 	margin-right: 1rem;
 }
