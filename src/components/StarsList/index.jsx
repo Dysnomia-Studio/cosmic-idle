@@ -14,8 +14,6 @@ function StarsList({ t, i18n }) {
 	console.log(stars);
 
 	function formStar(amount) {
-		amount = Math.floor(amount);
-
 		setResources(inputResources => {
 			if(inputResources.hydrogen < amount) {
 				return; // TODO: error
@@ -37,6 +35,7 @@ function StarsList({ t, i18n }) {
 		<View
 			resources={resources}
 			formStar={formStar}
+			disabled={!unlockedResearch.includes('protostars')}
 			t={t}
 			i18n={i18n}
 		/>
