@@ -11,8 +11,6 @@ function StarsList({ t, i18n }) {
 	const stars = useStars();
 	const setStars = useStarsSetter();
 
-	console.log(stars);
-
 	function formStar(amount) {
 		setResources(inputResources => {
 			if(inputResources.hydrogen < amount) {

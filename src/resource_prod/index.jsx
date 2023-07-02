@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useResearch, useResources, useResourcesSetter } from '../save/index.jsx';
+import { useResearch, useResources, useResourcesSetter, useStars } from '../save/index.jsx';
 
 import { PRODUCTION_INTERVAL } from './constants.js';
 
@@ -22,6 +22,7 @@ export const prodCalculation = {
 export default function useResourceProduction() {
 	const setResources = useResourcesSetter();
 	const unlockedResearch = useResearch();
+	const stars = useStars();
 
 	useEffect(() => {
 		const id = setInterval(() => {
@@ -32,7 +33,7 @@ export default function useResourceProduction() {
 						continue;
 					}
 
-					const deltas = prodCalculation[name](resources, unlockedResearch);
+					const deltas = prodCalculation[name](resources, unlockedResearch, stars);
 
 					// TODO: do not go negative
 

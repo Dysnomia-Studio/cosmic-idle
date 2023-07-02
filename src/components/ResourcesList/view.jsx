@@ -6,11 +6,11 @@ import { CALC_PER_SECOND } from '../../resource_prod/constants.js';
 
 import './index.css';
 
-export default function ResourcesList({ i18n, resources, setResources, t, unlockedResearch }) {
+export default function ResourcesList({ i18n, resources, setResources, stars, t, unlockedResearch }) {
 	const prods = {};
 	const consos = {};
 	for(const resource of resourcesList) {
-		const delta = prodCalculation[resource.id](resources, unlockedResearch);
+		const delta = prodCalculation[resource.id](resources, unlockedResearch, stars);
 
 		for(const resourceName in delta) {
 			if(resourceName === resource.id) {
